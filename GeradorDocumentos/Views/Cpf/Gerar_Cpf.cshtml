@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewData["Title"] = "Gerador de Cpf";
+}
+
+<h1>Gerador de Cpf</h1>
+
+<br />
+
+<h4>O gerador de CPF ajuda desenvolvedores a testar as aplicações em desenvolvimento, ou caso precisar de um cpf válido</h4>
+
+<br />
+
+<form asp-controller="Cpf" asp-action="PostCpf" method="post">
+    <input type="submit" value="Gerar Cpf" class="btn btn-primary" />
+    <input name="pontuacao" id="pontuacao" style="margin-left:10px" type="checkbox" value="true" /> Com Pontuação?<br />
+</form>
+<br />
+
+<div class="form-group">
+    <div">
+        <b style="font-size:25px" id="cpf">@ViewBag.Cpf</b>
+
+        @if (@ViewBag.Cpf != null)
+        {
+            <button onclick="copyToClipboard('#cpf')" id="botao">Copiar</button>
+        }
+</div>
+
+<br />
+<br />
+<br />
+
+
+@*<form asp-controller="Cpf" asp-action="ValidaCpf" method="post">
+    <input name="cpf" id="cpf" type="text" value="" /><br />
+    <input type="submit" value="Validar" class="btn btn-primary" />
+
+</form>
+
+<div>
+    @{
+
+        if (ViewBag.CpfEhValido != null && ViewBag.CpfEhValido )
+        {
+            <b>É válido</b>
+        }
+        else if (@ViewBag.CpfEhValido == false)
+        {
+            <b>Não é válido</b>
+        }
+
+
+    }
+</div>*@
+
+
+
+
+
+<br />
+<div class="form-group">
+    <div">
+        <b style="font-size:25px" id="cpf">@ViewBag.Cpf</b>
+
+        @if (@ViewBag.Cpf != null)
+        {
+            <button onclick="copyToClipboard('#cpf')" id="botao">Copiar</button>
+        }
+</div>
+
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<p>O Cadastro de Pessoas Físicas conhecido como CPF é o registro mantido pela Receita Federal do Brasil no qual podem se inscrever, uma única vez, quaisquer pessoas naturais, independentemente de idade ou nacionalidade, inclusive falecidas. Cada inscrito é unicamente identificado por um número de inscrição no CPF de 11 dígitos decimais. Esse número jamais muda senão por decisão judicial ou administrativa.</p>
+
+<p>Para a formação dos dígitos é feito um calculo que pode ser encontrado no wikipedia.</p>
+
+<p>O CPF poderá assumir as seguintes situações cadastrais:</p>
+
+<ul>
+    <li>Regular, quando não houver inconsistência cadastral e não constar omissão de DIRPF;</li>
+    <li>Pendente de regularização, quando houver omissão de DIRPF;</li>
+    <li>Suspensa, quando houver inconsistência cadastral;</li>
+    <li>Cancelada por multiplicidade, quando houver mais de uma inscrição no CPF para a mesma pessoa;</li>
+    <li>Cancelada por óbito sem espólio;</li>
+    <li>Cancelada por encerramento de espólio; ou</li>
+    <li>Nula, nos casos em que for constatada fraude.</li>
+
+</ul>
+
+<p>O cancelamento da inscrição no CPF ocorre a pedido ou de ofício. A simples falta de entrega de DIRPF não enseja o cancelamento do CPF.</p>
+
+<p>Fonte: Wikipedia</p>
+
+@section Scripts
+{
+
+    <script type="text/javascript">
+
+        function copyToClipboard(element) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(element).text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+
+            //
+            document.getElementById("botao").innerHTML = "Copiado";
+            document.getElementById("botao").style.backgroundColor = "#00FF7F";
+        }
+
+    </script>
+}

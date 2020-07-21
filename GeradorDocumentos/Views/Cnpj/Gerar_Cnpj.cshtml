@@ -1,0 +1,96 @@
+﻿
+@{
+     Layout = "_Layout";
+    ViewData["Title"] = "Cnpj";
+}
+
+<h1>Gerador de Cnpj</h1>
+<br />
+
+<h4>O gerador de CNPJ ajuda desenvolvedores a testar as aplicações em desenvolvimento, ou caso precisar de um cnpj válido</h4>
+
+<br />
+
+<form asp-controller="Cnpj" asp-action="PostCnpj" method="post">
+    <input type="submit" value="Gerar Cnpj" class="btn btn-primary" />
+        
+    <input name="pontuacao" id="pontuacao" style="margin-left:10px" type="checkbox" value="true" /> Com Pontuação?<br />
+
+
+
+</form>
+
+
+
+
+<br />
+<div class="form-group">
+    <div id="areacnpj">
+        <b style="font-size:25px" id="cnpj">@ViewBag.Cnpj</b>
+
+        @if(@ViewBag.Cnpj!=null)
+        {
+            @*<button onclick="copyToClipboard('#cnpj')" style="height:25px"><img src="~/images/copy.png" /></button>*@
+            <button onclick="copyToClipboard('#cnpj')" id="botao" >Copiar</button>
+        }
+    </div>
+   
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<h4>O que é um CNPJ?</h4>
+
+<p>
+    Cadastro Nacional da Pessoa Jurídica mais conhecido como CNPJ é um número que  identifica uma pessoa jurídica e outros tipos de arranjo jurídico sem personalidade jurídica. O número registrado na Receita Federal brasileira subordinado ao Ministério da Economia. O CNPJ compreende as informações cadastrais de interesse das administrações tributárias da União, dos Estados, do Distrito Federal e dos Municípios. Criado em julho de 1998, como uma evolução do antigo Cadastro Geral de Contribuintes e por vezes também é grafado como CNPJ-ME. Encontra-se regulamentado pela Instrução Normativa RFB 1.470/2014.
+</p>
+
+    O Cadastro é uma identidade e nele tem informados:
+
+<ul>
+    <li>Data de abertura da empresa;</li>
+    <li>Nome da empresa;</li>
+    <li>Título ou nome fantasia;</li>
+    <li>Código e descrição da atividade econômica principal;</li>
+    <li>Código e descrição das atividades econômicas secundárias;</li>
+    <li>Código e descrição da natureza jurídica;</li>
+    <li>Endereço;</li>
+    <li>Situação cadastral</li>
+</ul>
+
+
+<p>O registro no CNPJ é efetuado a partir dos estabelecimentos, os quais recebem o mesmo número de identificação básico da respectiva matriz, complementado por um identificador específico para cada estabelecimento.</p>
+
+<p>Fonte: Wikipedia</p>
+
+@section Scripts
+{
+
+    <script type="text/javascript">
+
+      function copyToClipboard(element) {
+          var $temp = $("<input>");
+          $("body").append($temp);
+          $temp.val($(element).text()).select();
+          document.execCommand("copy");
+          $temp.remove();
+
+          //
+          document.getElementById("botao").innerHTML = "Copiado";
+          document.getElementById("botao").style.backgroundColor = "#00FF7F";
+       }
+
+    </script>
+}
+

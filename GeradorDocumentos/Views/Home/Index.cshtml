@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Gerador de documentos</h1>
+
+    <h2>CPF e CNPJ</h2>
+
+    <h4>
+        Gerar CNPJ
+        <a asp-controller="cnpj"
+           asp-action="gerar_cnpj">  clique aqui</a>
+
+        ou
+
+        Gerar CPF
+        <a asp-controller="cpf"
+           asp-action="gerar_cpf"> clique aqui</a>
+    </h4>
+</div>
+
+<div>
+    Neste site é possível gerar CNPJ, CPF, nomes aleatórios e outros dados com o objetivo de auxiliar os desenvolvedores a testar suas aplicações. 
+</div>
+
+
+
+
+
+
+@section Scripts
+{
+    <script type="text/javascript">
+       
+    </script>
+}
